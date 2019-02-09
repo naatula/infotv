@@ -72,7 +72,7 @@
             }
           }
 
-          if($xml = simplexml_load_file("")){
+          if($xml = simplexml_load_file("temp/weather.xml")){
             $temp = str_replace(".",",",$xml->temp_c); # Yksi desimaali
             #$temp = round(floatval($xml->temp_c)); # Ei desimaaleja
             $wind_dir = intval($xml->wind_degrees);
