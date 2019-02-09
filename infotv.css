@@ -192,12 +192,12 @@ body#clock div#wlan {
 }
 
 body#clock div#ssid {
-  font-size: 4vh;
-  color: #666;
+  font-size: 5vh;
+  color: #999;
 }
 
 body#clock div#pass {
-  font-size: 8vh;
+  font-size: 10vh;
   font-family: monospace;
   color: #CCC;
 }
@@ -214,7 +214,6 @@ body#clock .button {
   font-size: 42px;
 }
 
-body#clock a:hover .button,
 body#clock a:active .button {
   color: #fff;
 }

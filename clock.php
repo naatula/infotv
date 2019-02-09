@@ -59,7 +59,7 @@
       <div class="close material-icons button">close</div>
     </a>
     <a href="#">
-      <div class="bottom_right material-icons button" onclick="toggleWlan()">perm_scan_wifi</div>
+      <div class="bottom_right material-icons button" onclick="toggleWlan()">wifi</div>
     </a>
 </body>
 </html>
