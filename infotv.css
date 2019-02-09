@@ -187,7 +187,7 @@ body#clock div#time {
 }
 
 body#clock div#wlan {
-  font-family: monospace;
+  font-family: "Roboto Mono", monospace;
   margin-bottom: 5vh;
 }
 
@@ -198,7 +198,6 @@ body#clock div#ssid {
 
 body#clock div#pass {
   font-size: 10vh;
-  font-family: monospace;
   color: #CCC;
 }
 
