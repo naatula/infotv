@@ -28,12 +28,6 @@
       /*document.getElementById('date').innerHTML =
       d + ". " + monthNames[mo]*/
 
-      /* Tarkistetaan, poistetaanko lounas näytöltä
-      if(h>13){
-        document.getElementById('lunch').innerHTML =
-        "";
-      }*/
-
       var t = setTimeout(startTime, 1000);
     }
     function checkTime(i) {
@@ -109,31 +103,62 @@
       </a>
     </span>
     <span id='bottombar'>
+      <span id='lunch'>
         <?php
-        # Jos ruoka-aika on mennyt, huomisen ruoka
-        $after_lunch = date(G)>13;
+        $after_lunch = date(G)>12;
         if($after_lunch){
-          $tomorrow  = mktime(0, 0, 0, date("m"), date("d")+1, date("Y"));
-          $json_date = date('Y/m/d', $tomorrow);
-          $date_display = 'huomenna';
+          $lunch_in_days = 0;
         } else {
-          $json_date = date('Y/m/d');
-          $date_display = 'tänään';
+          $lunch_in_days = -1;
         }
 
-        # Haetaan ruokalista sodexolta ja tulostetaan se
-        ini_set('default_socket_timeout', 1);
-        $json = file_get_contents("https://www.sodexo.fi/ruokalistat/output/daily_json/27843/{$json_date}/fi") or "";
-        ini_set('default_socket_timeout', 60);
-        $menu = json_decode($json);
-        foreach($menu->courses as $item){
-          $lunch[] = $item->title_fi;
+        do {
+          $lunch_in_days = $lunch_in_days + 1;
+          $lunch_time = mktime(0, 0, 0, date("m"), date("d") + $lunch_in_days, date("Y"));
+          $json_date = date('Y/m/d', $lunch_time);
+
+
+          if (file_exists("temp/lunch_{$lunch_time}")){
+            $json = file_get_contents("temp/lunch_{$lunch_time}");
+            $menu = json_decode($json);
+            foreach($menu->courses as $item){
+              $lunch[] = $item->title_fi;
+            }
+          } else {
+            ini_set('default_socket_timeout', 1);
+            $json = file_get_contents("https://www.sodexo.fi/ruokalistat/output/daily_json/27843/{$json_date}/fi") or "";
+            ini_set('default_socket_timeout', 60);
+            if (!empty($json)){
+              $file = fopen("temp/lunch_{$lunch_time}", w) or die("File open failed");
+              fwrite($file, $json);
+              fclose($file);
+            }
+
+            $menu = json_decode($json);
+            foreach($menu->courses as $item){
+              $lunch[] = $item->title_fi;
+            }
+
+          }
+
+
+        } while (($lunch_in_days < 3) && (empty($lunch)));
+
+        if ($lunch_in_days == 0){
+          $date_display = "tänään";
+        } elseif ($lunch_in_days == 1){
+          $date_display = "huomenna";
+        } else {
+          $date_display = array("sunnuntaina","maanantaina","tiistaina","keskiviikkona","torstaina","perjantaina","lauantaina")[date(w,$lunch_time)];
         }
 
         if (!empty($lunch)){
-          echo "<span id='lunch'>Lounas " . $date_display . ":<span class='left_margin lunch_option'>" . implode($lunch,"</span><span class='left_margin lunch_option'>") . "</span></span>";
+          echo "Lounas " . $date_display . ":<span class='left_margin lunch_option'>" . implode($lunch,"</span><span class='left_margin lunch_option'>") . "</span>";
+        } else {
+          echo "Hyvää lomaa!";
         }
         ?>
+      </span>
     </span>
   </div>
 </body>
