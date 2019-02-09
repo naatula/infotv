@@ -1,0 +1,132 @@
+body {
+  background-color: #000;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  overflow: hidden;
+}
+
+body#weatherlink {
+  background-color: #1D384B;
+}
+
+body#calendar {
+  background-color: #E3E8FD;
+}
+
+.fullscreen{
+  width: 100vw;
+  height: 100vh;
+}
+
+#content {
+  padding: 0;
+  width: 100vw;
+  height: calc(100vw/16*9);
+  position: relative;
+}
+
+iframe {
+  height: 100vh;
+  height: calc(100vw/16*9);
+  width: 100vw;
+  display: block;
+  pointer-events: none;
+  border: none;
+}
+
+body#calendar iframe {
+  height: 102vh;
+  height: calc(95vh + 70px);
+  margin-top: -45px;
+}
+
+#topbar {
+  position: absolute;
+  top: 0;
+  color: #FFF;
+  font-size: 2.5vw;
+  margin: 0;
+  width: 100vw;
+  text-align: center;
+  background-color: rgba(0,0,0,0.7);
+  background-color: #0008;
+}
+
+#weather {
+  position: absolute;
+  right: 1vw;
+}
+
+#date {
+  position: absolute;
+  left: 1vw;
+}
+
+.monospace {
+  font-family: monospace;
+}
+
+.right_margin {
+  margin-right: 1.5vw;
+}
+
+.left_margin {
+  margin-left: 1.5vw;
+}
+
+.detail {
+  opacity: 0.5;
+  font-size: 0.6em;
+}
+
+.unit {
+  font-size: smaller;
+}
+
+#bottombar {
+  position: absolute;
+  bottom: 0;
+  color: #BBB;
+  font-size: 1.5vw;
+  margin: 0;
+  width: 100vw;
+  background-color: #000;
+  /*background-color: rgba(0,0,0,0.7);
+  background-color: #0008;*/
+}
+
+#lunch {
+  margin-left: 1vw;
+  padding: 0;
+  display: inline-block;
+}
+
+.lunch_option {
+  color: #EEE;
+}
+
+img.compass {
+   height: .75em;
+   margin-right: 0.25em;
+ }
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a:active {
+  color: rgba(255,255,255,0.5)
+}
+
+#calendar_bar {
+  position: absolute;
+  bottom: 0;
+  font-size: 3vh;
+  color: #333;
+  padding-top: .5vh;
+  padding-bottom: 1vh;
+  background-color: #E3E8FD;
+  width: 100%;
+  text-align: center;
+}
