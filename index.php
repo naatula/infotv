@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>InfoTV</title>
+  <?php include("head.php"); ?>
   <?php
   # Päivitä sivu tasa- ja puolitunnein
   if (date(i)<30){
@@ -12,11 +13,6 @@
   }
   echo "<meta http-equiv='refresh' content='{$refresh_time}'>";
   ?>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="manifest" href="infotv.webmanifest">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="infotv.css">
   <script>
     /*monthNames = ["tammikuuta","helmikuuta","maaliskuuta","huhtikuuta","toukokuuta","kesäkuuta","heinäkuuta","elokuuta","syyskuuta","lokakuuta","marraskuuta","joulukuuta"]*/
     function startTime() {

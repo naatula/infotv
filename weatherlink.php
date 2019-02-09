@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>InfoTV</title>
+  <?php include("head.php"); ?>
   <?php
   $delay = $_GET["delay"];
   if($delay){
@@ -10,7 +11,6 @@
   }
   ?>
 
-  <link rel="stylesheet" type="text/css" href="infotv.css">
 </head>
 <body id="weatherlink">
   <a href="./">

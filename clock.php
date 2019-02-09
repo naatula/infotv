@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>InfoTV Kello</title>
+  <?php include("head.php"); ?>
 
   <?php
   $delay = $_GET["delay"];
@@ -11,7 +12,6 @@
   }
   ?>
 
-  <link rel="stylesheet" type="text/css" href="infotv.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 
   <script>
