@@ -14,19 +14,19 @@
   echo "<meta http-equiv='refresh' content='{$refresh_time}'>";
   ?>
   <script>
-    /*monthNames = ["tammikuuta","helmikuuta","maaliskuuta","huhtikuuta","toukokuuta","kesäkuuta","heinäkuuta","elokuuta","syyskuuta","lokakuuta","marraskuuta","joulukuuta"]*/
+    monthNames = ["tammikuuta","helmikuuta","maaliskuuta","huhtikuuta","toukokuuta","kesäkuuta","heinäkuuta","elokuuta","syyskuuta","lokakuuta","marraskuuta","joulukuuta"]
     function startTime() {
       var today = new Date();
       var h = today.getHours();
       var m = today.getMinutes();
-      /*var d = today.getDate();
-      var mo = today.getMonth() ;*/
+      var d = today.getDate();
+      var mo = today.getMonth() ;
       h = checkTime(h);
       m = checkTime(m);
       document.getElementById('time').innerHTML =
       h + ":" + m;
-      /*document.getElementById('date').innerHTML =
-      d + ". " + monthNames[mo]*/
+      document.getElementById('date').innerHTML =
+      d + ". " + monthNames[mo]
 
       var t = setTimeout(startTime, 1000);
     }
