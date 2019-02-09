@@ -23,6 +23,14 @@ a:active {
   color: rgba(255,255,255,0.4)
 }
 
+.close {
+  position: absolute;
+  font-size: 42px;
+  right: 0;
+  top: 0;
+  padding: 0 10px 10px 10px;
+}
+
 /* Main view */
 #content {
   padding: 0;
@@ -145,28 +153,68 @@ body#calendar iframe {
   bottom: 0;
 }
 
-.close {
-  position: absolute;
-  font-size: 42px;
-  right: 0;
-  top: 0;
-  color: black;
-  padding: 0 10px 10px 10px;
-}
-
-a:hover .close {
+body#calendar a:hover .close {
   color: #7f0000;
 }
 
-a:focus .close {
+body#calendar a:focus .close {
   color: #b71c1c;
 }
 
-a:active .close {
+body#calendar a:active .close {
   color: #f05545;
 }
 
 /* WeatherLink view */
 body#weatherlink {
   background-color: #1D384B;
+}
+
+/* Clock view */
+body#clock {
+  color: #fff;
+}
+
+body#clock table {
+  height: 80vh;
+  width: 100%;
+  vertical-align: middle;
+  text-align: center;
+}
+
+body#clock div#time {
+  font-size: 20vh;
+}
+
+body#clock div#wlan {
+  font-family: monospace;
+  margin-bottom: 5vh;
+}
+
+body#clock div#ssid {
+  font-size: 4vh;
+  color: #666;
+}
+
+body#clock div#pass {
+  font-size: 8vh;
+  font-family: monospace;
+  color: #CCC;
+}
+
+body#clock .material-icons.bottom_right {
+  right: 0;
+  bottom: 0;
+}
+
+body#clock .button {
+  position: absolute;
+  color: #666;
+  padding: 10px;
+  font-size: 42px;
+}
+
+body#clock a:hover .button,
+body#clock a:active .button {
+  color: #fff;
 }
