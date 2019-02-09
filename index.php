@@ -50,7 +50,7 @@
       <a href='weatherlink?delay=180'>
       <span id="weather">
         <?php
-          if ((time()-filemtime("Weather.xml"))>1800) {
+          if ((time()-filemtime("temp/weather.xml"))>1800) {
             ini_set('default_socket_timeout', 1);
             $data = file_get_contents("https://api.weatherlink.com/v1/NoaaExt.xml?user=[USER_ID]&pass=[PASSWORD]&apiToken=[API_TOKEN]") or "";
             ini_set('default_socket_timeout', 60);
@@ -60,7 +60,7 @@
               $data_valid = strlen($xml->temp_c)>0 && strlen($xml->wind_degrees)>0 && strlen($xml->wind_mph)>0;
             }
             if (!$data_valid){
-              $data_age = floor((time() - filemtime("Weather.xml")) / 3600);
+              $data_age = floor((time() - filemtime("temp/weather.xml")) / 3600);
               if ($data_age==0){
                 echo("<span class='right_margin detail'>sää päivitetty alle tunti sitten</span>");
               } else {
@@ -68,18 +68,21 @@
               }
 
             }else{
-              file_put_contents('Weather.xml', $data);
+              file_put_contents('temp/weather.xml', $data) or trigger_error("Tiedostoon temp/weather.xml ei voitu kirjoittaa", E_USER_WARNING);
             }
           }
 
-          $xml = simplexml_load_file("Weather.xml") or die("");
-          $temp = str_replace(".",",",$xml->temp_c); # Yksi desimaali
-          #$temp = round(floatval($xml->temp_c)); # Ei desimaaleja
-          $wind_dir = intval($xml->wind_degrees);
-          $wind = round($xml->wind_mph*0.44704);
-          echo("<span class='right_margin'>{$temp}<span class='unit'>°C</span></span>");
-          #echo("<span class='right_margin'>{$humidity}<span class='unit'>%</span></span>");
-          echo("<span id='wind'><img class='compass' src='wind_arrow.svg' style='-webkit-transform: rotate({$wind_dir}deg); -ms-transform: rotate({$wind_dir}deg); transform: rotate({$wind_dir}deg);'>{$wind}<span class='unit'>m/s</span></span>");
+          if($xml = simplexml_load_file("")){
+            $temp = str_replace(".",",",$xml->temp_c); # Yksi desimaali
+            #$temp = round(floatval($xml->temp_c)); # Ei desimaaleja
+            $wind_dir = intval($xml->wind_degrees);
+            $wind = round($xml->wind_mph*0.44704);
+            echo("<span class='right_margin'>{$temp}<span class='unit'>°C</span></span>");
+            #echo("<span class='right_margin'>{$humidity}<span class='unit'>%</span></span>");
+            echo("<span id='wind'><img class='compass' src='wind_arrow.svg' style='-webkit-transform: rotate({$wind_dir}deg); -ms-transform: rotate({$wind_dir}deg); transform: rotate({$wind_dir}deg);'>{$wind}<span class='unit'>m/s</span></span>");
+          } else {
+            echo "Ei säätietoja";
+          }
         ?>
       </span>
       </a>
@@ -118,8 +121,8 @@
           $json_date = date('Y/m/d', $lunch_time);
 
 
-          if (file_exists("temp/lunch_{$lunch_time}")){
-            $json = file_get_contents("temp/lunch_{$lunch_time}");
+          if (file_exists("temp/lunch_{$lunch_time}.json")){
+            $json = file_get_contents("temp/lunch_{$lunch_time}.json");
             $menu = json_decode($json);
             foreach($menu->courses as $item){
               $lunch[] = $item->title_fi;
@@ -129,9 +132,12 @@
             $json = file_get_contents("https://www.sodexo.fi/ruokalistat/output/daily_json/27843/{$json_date}/fi") or "";
             ini_set('default_socket_timeout', 60);
             if (!empty($json)){
-              $file = fopen("temp/lunch_{$lunch_time}", w) or die("File open failed");
-              fwrite($file, $json);
-              fclose($file);
+              if($file = fopen("temp/lunch_{$lunch_time}.json", w)){
+                fwrite($file, $json);
+                fclose($file);
+              } else {
+                trigger_error("Tiedostoa temp/lunch_{$lunch_time}.json ei voitu luoda", E_USER_WARNING);
+              }
             }
 
             $menu = json_decode($json);
