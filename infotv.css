@@ -1,3 +1,4 @@
+/* General */
 body {
   background-color: #000;
   margin: 0;
@@ -5,19 +6,21 @@ body {
   overflow: hidden;
 }
 
-body#weatherlink {
-  background-color: #1D384B;
-}
-
-body#calendar {
-  background-color: #E3E8FD;
-}
-
 .fullscreen{
   width: 100vw;
   height: 100vh;
 }
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a:active {
+  color: rgba(255,255,255,0.4)
+}
+
+/* Main view */
 #content {
   padding: 0;
   width: 100vw;
@@ -34,12 +37,7 @@ iframe {
   border: none;
 }
 
-body#calendar iframe {
-  height: 102vh;
-  height: calc(95vh + 70px);
-  margin-top: -45px;
-}
-
+/* Top bar */
 #topbar {
   position: absolute;
   top: 0;
@@ -52,16 +50,23 @@ body#calendar iframe {
   background-color: #0008;
 }
 
+/* Weather in top bar */
 #weather {
   position: absolute;
   right: 1vw;
 }
+
+img.compass {
+   height: .75em;
+   margin-right: 0.25em;
+ }
 
 #date {
   position: absolute;
   left: 1vw;
 }
 
+/* General top bar */
 .monospace {
   font-family: monospace;
 }
@@ -83,6 +88,7 @@ body#calendar iframe {
   font-size: smaller;
 }
 
+/* Bottom bar */
 #bottombar {
   position: absolute;
   bottom: 0;
@@ -95,6 +101,7 @@ body#calendar iframe {
   background-color: #0008;*/
 }
 
+/* Lunch in bottom bar */
 #lunch {
   margin-left: 1vw;
   padding: 0;
@@ -105,18 +112,15 @@ body#calendar iframe {
   color: #EEE;
 }
 
-img.compass {
-   height: .75em;
-   margin-right: 0.25em;
- }
-
-a {
-  color: inherit;
-  text-decoration: inherit;
+/* Calendar view */
+body#calendar {
+  background-color: #E3E8FD;
 }
 
-a:active {
-  color: rgba(255,255,255,0.5)
+body#calendar iframe {
+  height: 102vh;
+  height: calc(95vh);
+  margin-top: -45px;
 }
 
 #calendar_bar {
@@ -129,4 +133,9 @@ a:active {
   background-color: #E3E8FD;
   width: 100%;
   text-align: center;
+}
+
+/* WeatherLink view */
+body#weatherlink {
+  background-color: #1D384B;
 }
