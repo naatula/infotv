@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>InfoTV</title>
+  <title>InfoTV Kalenteri</title>
   <?php
   $delay = $_GET["delay"];
   if($delay){
