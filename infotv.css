@@ -1,3 +1,6 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
 /* General */
 body {
   background-color: #000;
@@ -118,21 +121,49 @@ body#calendar {
 }
 
 body#calendar iframe {
-  height: 102vh;
-  height: calc(95vh);
-  margin-top: -45px;
+  height: calc(100vh + 25px);
+  margin-top: 0px;
+  pointer-events: all;
 }
 
 #calendar_bar {
   position: absolute;
-  bottom: 0;
-  font-size: 3vh;
-  color: #333;
-  padding-top: .5vh;
-  padding-bottom: 1vh;
-  background-color: #E3E8FD;
+  height: 42px;
+  top:0;
+  right:0;
+  color: #000;
+  font-size: 32px;
+  background-color: /*#E3E8FD;*/#fff;
+  width: calc(100% - 350px);
+  text-align: left;
+}
+
+#calendar_noclick {
+  position: absolute;
+  height: calc(100vh - 65px);
   width: 100%;
-  text-align: center;
+  bottom: 0;
+}
+
+.close {
+  position: absolute;
+  font-size: 42px;
+  right: 0;
+  top: 0;
+  color: black;
+  padding: 0 10px 10px 10px;
+}
+
+a:hover .close {
+  color: #7f0000;
+}
+
+a:focus .close {
+  color: #b71c1c;
+}
+
+a:active .close {
+  color: #f05545;
 }
 
 /* WeatherLink view */
