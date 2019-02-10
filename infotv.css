@@ -5,7 +5,7 @@
 body {
   background-color: #000;
   margin: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", "Arial", sans-serif;
   overflow: hidden;
 }
 
@@ -20,7 +20,7 @@ a {
 }
 
 a:active {
-  color: rgba(255,255,255,0.4)
+  color: rgba(255, 255, 255, 0.4)
 }
 
 .close {
@@ -35,13 +35,13 @@ a:active {
 #content {
   padding: 0;
   width: 100vw;
-  height: calc(100vw/16*9);
+  height: calc(100vw / 16 * 9);
   position: relative;
 }
 
 iframe {
   height: 100vh;
-  height: calc(100vw/16*9);
+  height: calc(100vw / 16 * 9);
   width: 100vw;
   display: block;
   pointer-events: none;
@@ -57,7 +57,7 @@ iframe {
   margin: 0;
   width: 100vw;
   text-align: center;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   background-color: #0008;
 }
 
@@ -67,9 +67,9 @@ iframe {
   right: 1vw;
 }
 
-img.compass {
-   height: .75em;
-   margin-right: 0.25em;
+img.wind_arrow {
+  height: .75em;
+  margin-right: .25em;
  }
 
 #date {
@@ -78,9 +78,6 @@ img.compass {
 }
 
 /* General top bar */
-.monospace {
-  font-family: monospace;
-}
 
 .right_margin {
   margin-right: 1.5vw;
@@ -91,8 +88,8 @@ img.compass {
 }
 
 .detail {
-  opacity: 0.5;
-  font-size: 0.6em;
+  opacity: .5;
+  font-size: .6em;
 }
 
 .unit {
@@ -108,8 +105,6 @@ img.compass {
   margin: 0;
   width: 100vw;
   background-color: #000;
-  /*background-color: rgba(0,0,0,0.7);
-  background-color: #0008;*/
 }
 
 /* Lunch in bottom bar */
@@ -137,11 +132,11 @@ body#calendar iframe {
 #calendar_bar {
   position: absolute;
   height: 42px;
-  top:0;
-  right:0;
+  top: 0;
+  right: 0;
   color: #000;
   font-size: 32px;
-  background-color: /*#E3E8FD;*/#fff;
+  background-color: #fff;
   width: calc(100% - 350px);
   text-align: left;
 }
