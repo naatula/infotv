@@ -2,3 +2,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="manifest" href="infotv.webmanifest">
 <link rel="stylesheet" type="text/css" href="infotv.css">
+
+<?php
+$delay = $_GET["delay"];
+if($delay){
+  echo "<meta http-equiv='refresh' content='{$delay}; url=./' />";
+}
+?>

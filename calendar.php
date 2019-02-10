@@ -4,12 +4,6 @@
   <meta charset="utf-8">
   <title>InfoTV Kalenteri</title>
   <?php include("head.php"); ?>
-  <?php
-  $delay = $_GET["delay"];
-  if($delay){
-    echo "<meta http-equiv='refresh' content='{$delay}; url=./' />";
-  }
-  ?>
 
 </head>
 <body id="calendar">

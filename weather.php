@@ -5,13 +5,6 @@
   <title>InfoTV Sää</title>
   <?php include("head.php"); ?>
 
-  <?php
-  $delay = $_GET["delay"];
-  if($delay){
-    echo "<meta http-equiv='refresh' content='{$delay}; url=./' />";
-  }
-  ?>
-
 </head>
 
 <body id="weather">

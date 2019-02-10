@@ -5,13 +5,6 @@
   <title>InfoTV Kello</title>
   <?php include("head.php"); ?>
 
-  <?php
-  $delay = $_GET["delay"];
-  if($delay){
-    echo "<meta http-equiv='refresh' content='{$delay}; url=./' />";
-  }
-  ?>
-
   <script>
     function toggleWlan() {
       var info = document.getElementById("wlan");
