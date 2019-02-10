@@ -12,8 +12,6 @@
   }
   ?>
 
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-
   <script>
     function toggleWlan() {
       var x = document.getElementById("wlan");
