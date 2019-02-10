@@ -178,7 +178,12 @@ body#clock table {
 }
 
 body#clock div#time {
-  font-size: 20vh;
+  font-size: 20vw;
+  display: inline;
+}
+
+body#clock div#seconds {
+  font-size: 20vw;
 }
 
 body#clock div#wlan {
@@ -196,13 +201,14 @@ body#clock div#pass {
   color: #CCC;
 }
 
-body#clock .material-icons.bottom_right {
+body#clock .bottom_right {
   right: 0;
   bottom: 0;
+  position: absolute;
 }
 
 body#clock .button {
-  position: absolute;
+  display: block;
   color: #666;
   padding: 10px;
   font-size: 42px;
