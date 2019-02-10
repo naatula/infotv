@@ -70,7 +70,6 @@
         </td>
       </tr>
     </table>
-    </table>
 
     <a href="./">
       <div class="close material-icons button">close</div>
