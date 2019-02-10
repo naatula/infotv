@@ -14,31 +14,41 @@
       </tr>
       <tr>
         <td id="outside" class="temperature">
+          <span class="material-icons">landscape</span>
           <div class="value">0,0<span class="unit">°C</span></div>
           <div class="highlow">
             <table>
             <tr>
-              <td><span class="material-icons">whatshot</span></td>
-              <td>2,5°</td>
+              <td>
+                <span class="material-icons">whatshot</span>
+                <span class="value">2,5°</span>
+              </td>
               <td>04:34</td></tr>
             <tr>
-              <td><span class="material-icons">ac_unit</span></td>
-              <td>-1,3°</td>
+              <td>
+                <span class="material-icons">ac_unit</span>
+                <span class="value">-1,3°</span>
+              </td>
               <td>15:44</td></tr>
             </table>
           </div>
         </td>
         <td id="inside" class="temperature">
+          <span class="material-icons">home</span>
           <div class="value">21,5<span class="unit">°C</span></div>
           <div class="highlow">
             <table>
             <tr>
-              <td><span class="material-icons">whatshot</span></td>
-              <td>22,5°</td>
+              <td>
+                <span class="material-icons">whatshot</span>
+                <span class="value">22,5°</span>
+              </td>
               <td>16:35</td></tr>
             <tr>
-              <td><span class="material-icons">ac_unit</span></td>
-              <td>19,3°</td>
+              <td>
+                <span class="material-icons">ac_unit</span>
+                <span class="value">19,3°</span>
+              </td>
               <td>02:44</td></tr>
             </table>
           </div>

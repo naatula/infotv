@@ -243,23 +243,21 @@ body#weather table.title td.temperature {
   border-top: 2px solid #6a808f;
   border-bottom: 2px solid #6a808f;
   width: 50%;
-  padding-left: 5vw;
-  padding-right: 5vw;
   padding-bottom: .5vw;
   font-size: 5vw;
 }
 
 body#weather table.title td.temperature#outside {
-  font-weight: 700;
+  padding-left: 5vw;
 }
 
-td.temperature#outside div.highlow {
-  font-weight: normal;
+td.temperature div.highlow {
+  font-weight: 300;
 }
 
 body#weather table.title td.temperature#inside {
+  padding-right: 5vw;
   text-align: right;
-  font-weight: 300;
 }
 
 body#weather table.title td.temperature div.value {
@@ -273,6 +271,14 @@ div.highlow {
   text-align: left;
   display: inline-block;
   font-size: 0.4em;
+}
+
+div.highlow span.value {
+  vertical-align: middle;
+}
+
+td.temperature .material-icons {
+  font-size: 3vw;
 }
 
 div.highlow .material-icons {
