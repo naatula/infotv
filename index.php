@@ -47,10 +47,10 @@
   <div id="content">
     <iframe id="slides" src="https://docs.google.com/presentation/d/e/2PACX-1vRZpXNtuoV69BbfTlrbwIDCZeYL9OnmTwoej-gu7h0J68agp4C-OVSFMJsHjrFET4ui9A80EZutyhXr/embed?start=true&loop=true&delayms=20000&rm=minimal" frameborder="0"></iframe>
     <span id="topbar">
-      <a href='weatherlink?delay=180'>
+      <a href='weather?delay=180'>
       <span id="weather">
         <?php
-          if ((time()-filemtime("temp/weather.xml"))>1800) {
+          if ((time()-filemtime("temp/weather.xml"))>900) {
             ini_set('default_socket_timeout', 1);
             $data = file_get_contents("https://api.weatherlink.com/v1/NoaaExt.xml?user=[USER_ID]&pass=[PASSWORD]&apiToken=[API_TOKEN]") or "";
             ini_set('default_socket_timeout', 60);

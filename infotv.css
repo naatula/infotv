@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Mono';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,300|Roboto+Mono';
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
 /* General */
@@ -28,7 +28,13 @@ a:active {
   font-size: 42px;
   right: 0;
   top: 0;
-  padding: 0 10px 10px 10px;
+  padding: 10px;
+}
+
+.bottom_right {
+  right: 0;
+  bottom: 0;
+  position: absolute;
 }
 
 /* Main view */
@@ -62,7 +68,7 @@ iframe {
 }
 
 /* Weather in top bar */
-#weather {
+#topbar #weather {
   position: absolute;
   right: 1vw;
 }
@@ -72,7 +78,8 @@ img.wind_arrow {
   margin-right: .25em;
  }
 
-#date {
+/* Date in top bar */
+#topbar #date {
   position: absolute;
   left: 1vw;
 }
@@ -148,6 +155,11 @@ body#calendar iframe {
   bottom: 0;
 }
 
+body#calendar .close {
+  padding: 0 10px 10px 10px;
+  font-size: 42px;
+}
+
 body#calendar a:hover .close {
   color: #7f0000;
 }
@@ -158,11 +170,6 @@ body#calendar a:focus .close {
 
 body#calendar a:active .close {
   color: #f05545;
-}
-
-/* WeatherLink view */
-body#weatherlink {
-  background-color: #1D384B;
 }
 
 /* Clock view */
@@ -201,12 +208,6 @@ body#clock div#pass {
   color: #CCC;
 }
 
-body#clock .bottom_right {
-  right: 0;
-  bottom: 0;
-  position: absolute;
-}
-
 body#clock .button {
   display: block;
   color: #666;
@@ -216,4 +217,110 @@ body#clock .button {
 
 body#clock a:active .button {
   color: #fff;
+}
+
+/* Weather view */
+body#weather {
+  background-color: #1D384B;
+  color: #fff;
+}
+
+body#weather table.title {
+  width: 90%;
+  vertical-align: middle;
+  border-collapse: collapse;
+  margin: 0 5% 0 5%;
+}
+
+body#weather table.title td.name {
+  width: 50%;
+  font-size: 2.5vw;
+  padding: 2vw 0 2vw 0;
+}
+
+body#weather table.title td.temperature {
+  background-color: #3d5360;
+  border-top: 2px solid #6a808f;
+  border-bottom: 2px solid #6a808f;
+  width: 50%;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-bottom: .5vw;
+  font-size: 5vw;
+}
+
+body#weather table.title td.temperature#outside {
+  font-weight: 700;
+}
+
+td.temperature#outside div.highlow {
+  font-weight: normal;
+}
+
+body#weather table.title td.temperature#inside {
+  text-align: right;
+  font-weight: 300;
+}
+
+body#weather table.title td.temperature div.value {
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 2vw;
+}
+
+div.highlow {
+  vertical-align: middle;
+  text-align: left;
+  display: inline-block;
+  font-size: 0.4em;
+}
+
+div.highlow .material-icons {
+  font-size: 2vw;
+}
+
+body#weather span.material-icons {
+  vertical-align: middle;
+}
+
+div.highlow td {
+  padding-right: .5vw;
+}
+
+body#weather table.main {
+  vertical-align: middle;
+  border-collapse: collapse;
+  margin: 0 5% 0 5%;
+  width: 90%;
+}
+
+body#weather table.main td {
+  border-bottom: 1px solid #6a808f;
+  padding: 1vw;
+  font-size: 2.5vw;
+}
+
+body#weather table.main .extra {
+  margin-left: .5em;
+}
+
+body#weather table.main td:last-child {
+  text-align: right;
+  padding-right: 5vw;
+  font-weight: 300;
+}
+
+body#weather table.main td:first-child {
+  padding-left: 5vw;
+  font-weight: 700;
+}
+
+body#weather table.main tr:last-child td {
+  font-size: 1vw;
+  border-bottom: none;
+  color: #6a808f;
+}
+
+body#weather a:active .close {
+  color: #f05545;
 }
