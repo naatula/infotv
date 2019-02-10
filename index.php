@@ -51,8 +51,12 @@
       <span id="weather">
         <?php
           if ((time()-filemtime("temp/weather.xml"))>900) {
+            $credentials = parse_ini_file('credentials.ini');
+            $user = $credentials["wl_user"];
+            $pass = $credentials["wl_pass"];
+            $apiToken = $credentials["wl_apiToken"];
             ini_set('default_socket_timeout', 1);
-            $data = file_get_contents("https://api.weatherlink.com/v1/NoaaExt.xml?user=[USER_ID]&pass=[PASSWORD]&apiToken=[API_TOKEN]") or "";
+            $data = file_get_contents("https://api.weatherlink.com/v1/NoaaExt.xml?user={$user}&pass={$pass}&apiToken={$apiToken}") or "";
             ini_set('default_socket_timeout', 60);
             $data_valid = strlen($data)>100;
             if ($data_valid) {
