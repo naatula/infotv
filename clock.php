@@ -65,13 +65,13 @@
     </table>
 
     <a href="./">
-      <div class="material-icons button close">&#xe5cd;</div>
+      <div class="material-icons clock_button close">&#xe5cd;</div>
     </a>
       <div class="bottom_right">
         <a href="#">
-          <div id="wlan_toggle" class="material-icons button" onclick="toggleWlan()">&#xe63e;</div></a>
+          <div id="wlan_toggle" class="material-icons clock_button" onclick="toggleWlan()">&#xe63e;</div></a>
         <a href="#">
-          <div id="seconds_toggle" class="material-icons button" onclick="toggleSeconds()">&#xe425;</div>
+          <div id="seconds_toggle" class="material-icons clock_button" onclick="toggleSeconds()">&#xe425;</div>
         </a>
       </div>
 </body>

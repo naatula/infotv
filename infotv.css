@@ -37,10 +37,6 @@ a {
   text-decoration: inherit;
 }
 
-a:active {
-  color: rgba(255, 255, 255, 0.4)
-}
-
 .close {
   position: absolute;
   font-size: 42px;
@@ -53,6 +49,10 @@ a:active {
   right: 0;
   bottom: 0;
   position: absolute;
+}
+
+a:active .close {
+  color: #f05545;
 }
 
 /* Main view */
@@ -82,6 +82,10 @@ iframe {
   text-align: center;
   background-color: rgba(0, 0, 0, 0.7);
   background-color: #0008;
+}
+
+#topbar a:active {
+  color: rgba(255, 255, 255, 0.4)
 }
 
 /* Weather in top bar */
@@ -177,15 +181,6 @@ body#calendar iframe {
   height: 100%;
 }
 
-body#calendar .close {
-  padding: 0 10px 10px 10px;
-  font-size: 42px;
-}
-
-body#calendar a:active .close {
-  color: #f05545;
-}
-
 /* Clock view */
 body#clock {
   color: #fff;
@@ -222,15 +217,11 @@ body#clock div#pass {
   color: #CCC;
 }
 
-body#clock .button {
+.clock_button {
   display: block;
   color: #333;
   padding: 10px;
   font-size: 42px;
-}
-
-body#clock a:active .close {
-  color: #f05545;
 }
 
 /* Weather view */
@@ -336,8 +327,4 @@ body#weather table.main tr:last-child td {
   font-size: 1vw;
   border-bottom: none;
   color: #6a808f;
-}
-
-body#weather a:active .close {
-  color: #f05545;
 }

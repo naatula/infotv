@@ -190,7 +190,7 @@
     </table>
 
     <a href="./">
-      <i class="material-icons button close">close</i>
+      <i class="material-icons close">close</i>
     </a>
 </body>
 </html>
