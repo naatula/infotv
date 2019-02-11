@@ -39,7 +39,7 @@
   $solar_radiation = round($xml->davis_current_observation->solar_radiation);
   $solar_radiation_max = round($xml->davis_current_observation->solar_radiation_month_high);
   $uv_index = $xml->davis_current_observation->uv_index;
-  $sunset = $xml->davis_current_observation->sunset;
+  $sunset = date("H:i",strtotime($xml->davis_current_observation->sunset));
   $update_time = $xml->observation_time_rfc822;
 
  ?>
