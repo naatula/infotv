@@ -171,14 +171,6 @@ body#calendar .close {
   font-size: 42px;
 }
 
-body#calendar a:hover .close {
-  color: #7f0000;
-}
-
-body#calendar a:focus .close {
-  color: #b71c1c;
-}
-
 body#calendar a:active .close {
   color: #f05545;
 }
