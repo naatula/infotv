@@ -262,10 +262,6 @@ body#weather table.title td.temperature#outside {
   width: 55%;
 }
 
-td.temperature div.highlow {
-  font-weight: 300;
-}
-
 body#weather table.title td.temperature#inside {
   padding-right: 5vw;
   text-align: right;
