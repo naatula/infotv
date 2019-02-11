@@ -259,7 +259,7 @@ body#weather table.title td.temperature {
 
 body#weather table.title td.temperature#outside {
   padding-left: 5vw;
-  width: 60%;
+  width: 55%;
 }
 
 td.temperature div.highlow {
@@ -269,7 +269,7 @@ td.temperature div.highlow {
 body#weather table.title td.temperature#inside {
   padding-right: 5vw;
   text-align: right;
-  width: 40%;
+  width: 45%;
 }
 
 body#weather table.title td.temperature div.value {
@@ -302,7 +302,7 @@ body#weather .material-icons {
 }
 
 td.temperature#outside div.highlow td {
-  padding-right: 2vw;
+  padding-right: 1.5vw;
 }
 
 body#weather table.main {
