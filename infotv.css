@@ -1,5 +1,16 @@
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,300|Roboto+Mono';
-@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
+.material-icons {
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
 
 /* General */
 body {
@@ -242,13 +253,13 @@ body#weather table.title td.temperature {
   background-color: #3d5360;
   border-top: 2px solid #6a808f;
   border-bottom: 2px solid #6a808f;
-  width: 50%;
   padding-bottom: .5vw;
   font-size: 5vw;
 }
 
 body#weather table.title td.temperature#outside {
   padding-left: 5vw;
+  width: 60%;
 }
 
 td.temperature div.highlow {
@@ -258,6 +269,7 @@ td.temperature div.highlow {
 body#weather table.title td.temperature#inside {
   padding-right: 5vw;
   text-align: right;
+  width: 40%;
 }
 
 body#weather table.title td.temperature div.value {
@@ -285,12 +297,12 @@ div.highlow .material-icons {
   font-size: 2vw;
 }
 
-body#weather span.material-icons {
+body#weather .material-icons {
   vertical-align: middle;
 }
 
-div.highlow td {
-  padding-right: .5vw;
+td.temperature#outside div.highlow td {
+  padding-right: 2vw;
 }
 
 body#weather table.main {
