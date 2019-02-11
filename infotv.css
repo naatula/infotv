@@ -221,13 +221,13 @@ body#clock div#pass {
 
 body#clock .button {
   display: block;
-  color: #666;
+  color: #333;
   padding: 10px;
   font-size: 42px;
 }
 
-body#clock a:active .button {
-  color: #fff;
+body#clock a:active .close {
+  color: #f05545;
 }
 
 /* Weather view */

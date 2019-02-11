@@ -11,10 +11,10 @@
       var icon = document.getElementById("wlan_toggle");
       if (info.style.display === "none") {
         info.style.display = "block";
-        icon.innerHTML = "wifi";
+        icon.style.color = "#ccc";
       } else {
         info.style.display = "none";
-        icon.innerHTML = "wifi_off";
+        icon.style.color = "";
       }
     }
 
@@ -23,10 +23,10 @@
       var icon = document.getElementById("seconds_toggle");
       if (x.style.display === "none") {
         x.style.display = "inline";
-        icon.innerHTML = "timer";
+        icon.style.color = "#ccc";
       } else {
         x.style.display = "none";
-        icon.innerHTML = "timer_off";
+        icon.style.color = "";
       }
     }
 
@@ -65,13 +65,13 @@
     </table>
 
     <a href="./">
-      <div class="close material-icons button">close</div>
+      <div class="material-icons button close">&#xe5cd;</div>
     </a>
       <div class="bottom_right">
         <a href="#">
-          <div id="wlan_toggle" class="material-icons button" onclick="toggleWlan()">wifi_off</div></a>
+          <div id="wlan_toggle" class="material-icons button" onclick="toggleWlan()">&#xe63e;</div></a>
         <a href="#">
-          <div id="seconds_toggle" class="material-icons button" onclick="toggleSeconds()">timer_off</div>
+          <div id="seconds_toggle" class="material-icons button" onclick="toggleSeconds()">&#xe425;</div>
         </a>
       </div>
 </body>
