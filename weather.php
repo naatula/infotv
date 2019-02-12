@@ -34,6 +34,8 @@
     "Steady"=>"tasainen",
     "Rising Slowly"=>"nousee hitaasti",
     "Falling Slowly"=>"laskee hitaasti",
+    "Rising Rapidly"=>"nousee nopeasti",
+    "Falling Rapidly"=>"laskee nopeasti",
   )[strval($pressure_tendency)];
 
   $solar_radiation = round($xml->davis_current_observation->solar_radiation);
