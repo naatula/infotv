@@ -48,7 +48,7 @@
     <iframe id="slides" src="https://docs.google.com/presentation/d/e/2PACX-1vRZpXNtuoV69BbfTlrbwIDCZeYL9OnmTwoej-gu7h0J68agp4C-OVSFMJsHjrFET4ui9A80EZutyhXr/embed?start=true&loop=true&delayms=20000&rm=minimal" frameborder="0"></iframe>
     <span id="topbar">
       <a href='weather?delay=180'>
-      <span id="weather">
+      <span id="weather" class="link">
         <?php
           if ((time()-filemtime("temp/weather.xml"))>900) {
             $credentials = parse_ini_file('credentials.ini');
@@ -91,7 +91,7 @@
       </span>
       </a>
       <a href="clock?delay=21600">
-      <span id="time">
+      <span id="time" class="link">
       <?php
       date_default_timezone_set("Europe/Helsinki");
       echo date("H:i");
@@ -99,7 +99,7 @@
       </span>
       </a>
       <a href="calendar?delay=180">
-      <span id="date">
+      <span id="date" class="link">
         <?php
         $month_names = array("tammikuuta", "helmikuuta", "maaliskuuta", "huhtikuuta", "toukokuuta", "kesäkuuta", "heinäkuuta", "elokuuta", "syyskuuta", "lokakuuta", "marraskuuta", "joulukuuta");
         $day = date('j');

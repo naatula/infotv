@@ -84,14 +84,20 @@ iframe {
   background-color: #0008;
 }
 
-#topbar a:active {
-  color: rgba(255, 255, 255, 0.4)
+#topbar a:active span.link {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Time in top bar */
+#topbar #time {
+  padding: 0 2vw 0 2vw;
 }
 
 /* Weather in top bar */
 #topbar #weather {
   position: absolute;
-  right: 1vw;
+  right: 0;
+  padding: 0 1vw 0 2vw;
 }
 
 img.wind_arrow {
@@ -102,7 +108,8 @@ img.wind_arrow {
 /* Date in top bar */
 #topbar #date {
   position: absolute;
-  left: 1vw;
+  left: 0;
+  padding: 0 2vw 0 1vw;
 }
 
 /* General top bar */
