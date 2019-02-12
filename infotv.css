@@ -39,10 +39,10 @@ a {
 
 .close {
   position: absolute;
-  font-size: 42px;
+  font-size: 3vw;
   right: 0;
   top: 0;
-  padding: 10px;
+  padding: 1vw;
 }
 
 .bottom_right {
@@ -224,8 +224,8 @@ body#clock div#pass {
 .clock_button {
   display: block;
   color: #333;
-  padding: 10px;
-  font-size: 42px;
+  padding: 1vw;
+  font-size: 3vw;
 }
 
 /* Weather view */
