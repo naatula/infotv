@@ -99,6 +99,7 @@ iframe {
   right: 0;
   padding: 0 1vw 0 2vw;
   text-align: right;
+  display: table;
 }
 
 img.wind_arrow {
@@ -116,8 +117,8 @@ img.wind_arrow {
 
 /* General top bar */
 
-.right_margin {
-  margin-right: 1.5vw;
+.right_padding {
+  padding-right: 1.5vw;
 }
 
 .left_margin {
@@ -126,7 +127,9 @@ img.wind_arrow {
 
 .detail {
   opacity: .5;
-  font-size: .6em;
+  font-size: .5em;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .unit {
