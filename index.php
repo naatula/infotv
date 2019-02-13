@@ -86,7 +86,7 @@ function checkTime(i) {
               echo("<span class='right_padding detail'>sää päivitetty {$data_age}h sitten</span>");
             }
 
-            $temp = str_replace(".",",",$xml->temp_c); # Yksi desimaali
+            $temp = $xml->temp_c;
             #$temp = round(floatval($xml->temp_c)); # Ei desimaaleja
             $wind_dir = intval($xml->wind_degrees);
             $wind = round($xml->wind_mph*0.44704);
