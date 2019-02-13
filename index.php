@@ -14,26 +14,37 @@
   echo "<meta http-equiv='refresh' content='{$refresh_time}'>";
   ?>
   <script>
-    monthNames = ["tammikuuta","helmikuuta","maaliskuuta","huhtikuuta","toukokuuta","kesäkuuta","heinäkuuta","elokuuta","syyskuuta","lokakuuta","marraskuuta","joulukuuta"]
-    function startTime() {
-      var today = new Date();
-      var h = today.getHours();
-      var m = today.getMinutes();
-      var d = today.getDate();
-      var mo = today.getMonth() ;
-      h = checkTime(h);
-      m = checkTime(m);
-      document.getElementById('time').innerHTML =
-      h + ":" + m;
-      document.getElementById('date').innerHTML =
-      d + ". " + monthNames[mo]
+var startDate = new Date();
+var lastMinutes = startDate.getMinutes();
+var lastDay = startDate.getDate();
+document.addEventListener("DOMContentLoaded", function() {
+  setInterval(startTime, 1000);
+})
+monthNames = ["tammikuuta","helmikuuta","maaliskuuta","huhtikuuta","toukokuuta","kesäkuuta","heinäkuuta","elokuuta","syyskuuta","lokakuuta","marraskuuta","joulukuuta"]
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var d = today.getDate();
+  var mo = today.getMonth() ;
+  h = checkTime(h);
+  m = checkTime(m);
+  if (lastMinutes !== m) {
+    document.getElementById('time').innerHTML =
+    h + ":" + m;
+    lastMinutes = m;
+  }
+  if(lastDay !== d){
+    document.getElementById('date').innerHTML =
+    d + ". " + monthNames[mo];
+    lastDay = d;
+  }
+}
 
-      var t = setTimeout(startTime, 1000);
-    }
-    function checkTime(i) {
-      if (i < 10) {i = "0" + i};
-      return i;
-    }
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};
+  return i;
+}
 </script>
 <noscript>
   <style media="screen">
@@ -43,7 +54,7 @@
   </style>
 </noscript>
 </head>
-<body onload="startTime()">
+<body>
   <div id="content">
     <iframe id="slides" src="https://docs.google.com/presentation/d/e/2PACX-1vRZpXNtuoV69BbfTlrbwIDCZeYL9OnmTwoej-gu7h0J68agp4C-OVSFMJsHjrFET4ui9A80EZutyhXr/embed?start=true&loop=true&delayms=20000&rm=minimal" frameborder="0"></iframe>
     <span id="topbar">
