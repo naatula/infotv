@@ -87,11 +87,9 @@ function checkTime(i) {
             }
 
             $temp = $xml->temp_c;
-            #$temp = round(floatval($xml->temp_c)); # Ei desimaaleja
             $wind_dir = intval($xml->wind_degrees);
             $wind = round($xml->wind_mph*0.44704);
             echo("<span class='right_padding'>{$temp}<span class='unit'>°C</span></span>");
-            #echo("<span class='right_margin'>{$humidity}<span class='unit'>%</span></span>");
             echo("<span id='wind'><img class='wind_arrow' src='wind_arrow.svg' style='-webkit-transform: rotate({$wind_dir}deg); -ms-transform: rotate({$wind_dir}deg); transform: rotate({$wind_dir}deg);'>{$wind}<span class='unit'>m/s</span></span>");
           } else {
             echo "Ei säätietoja";
