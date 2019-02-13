@@ -74,20 +74,18 @@ function checkTime(i) {
               $xml = simplexml_load_string($data);
               $data_valid = strlen($xml->temp_c)>0 && strlen($xml->wind_degrees)>0 && strlen($xml->wind_mph)>0;
             }
-            if (!$data_valid){
-              $data_age = floor((time() - filemtime("temp/weather.xml")) / 3600);
-              if ($data_age==0){
-                echo("<span class='right_margin detail'>sää päivitetty alle tunti sitten</span>");
-              } else {
-                echo("<span class='right_margin detail'>sää päivitetty {$data_age}h sitten</span>");
-              }
-
-            }else{
+            if ($data_valid){
               file_put_contents('temp/weather.xml', $data) or trigger_error("Tiedostoon temp/weather.xml ei voitu kirjoittaa", E_USER_WARNING);
             }
           }
 
           if($xml = simplexml_load_file("temp/weather.xml")){
+
+            $data_age = floor((time() - strtotime($xml->observation_time_rfc822)) / 3600);
+            if ($data_age>0){
+              echo("<span class='right_margin detail'>sää päivitetty {$data_age}h sitten</span>");
+            }
+
             $temp = str_replace(".",",",$xml->temp_c); # Yksi desimaali
             #$temp = round(floatval($xml->temp_c)); # Ei desimaaleja
             $wind_dir = intval($xml->wind_degrees);
