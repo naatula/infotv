@@ -98,6 +98,7 @@ iframe {
   position: absolute;
   right: 0;
   padding: 0 1vw 0 2vw;
+  text-align: right;
 }
 
 img.wind_arrow {
@@ -110,6 +111,7 @@ img.wind_arrow {
   position: absolute;
   left: 0;
   padding: 0 2vw 0 1vw;
+  text-align: left;
 }
 
 /* General top bar */
