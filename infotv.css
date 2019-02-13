@@ -303,12 +303,17 @@ div.highlow .material-icons {
   font-size: 2vw;
 }
 
+div.highlow img {
+  height: 2vw;
+  vertical-align: middle;
+}
+
 body#weather .material-icons {
   vertical-align: middle;
 }
 
 td.temperature#outside div.highlow td {
-  padding-right: 1.5vw;
+  padding-right: 2vw;
 }
 
 body#weather table.main {
@@ -322,6 +327,14 @@ body#weather table.main td {
   border-bottom: 1px solid #6a808f;
   padding: 1vw;
   font-size: 2.5vw;
+}
+
+body#weather table.main td#column1 {
+  width: 35%;
+}
+
+body#weather table.main td#column2 {
+  width: 20%;
 }
 
 body#weather table.main .extra {

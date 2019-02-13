@@ -23,7 +23,7 @@
   $feels_like = $xml->heat_index_c;
   $wind = round($xml->wind_mph*0.44704);
   $wind_dir = $xml->wind_degrees;
-  $gust = round($xml->davis_current_observation->wind_day_high_mph*0.44704);
+  $gust = round($xml->davis_current_observation->wind_ten_min_gust_mph*0.44704);
   $humidity_out = $xml->relative_humidity;
   $dewpoint = $xml->dewpoint_c;
   $rain = round($xml->davis_current_observation->rain_day_in * 25.4,1);
@@ -42,6 +42,7 @@
   $solar_radiation_max = round($xml->davis_current_observation->solar_radiation_month_high);
   $uv_index = $xml->davis_current_observation->uv_index;
   $sunset = date("H:i",strtotime($xml->davis_current_observation->sunset));
+  $sunrise = date("H:i",strtotime($xml->davis_current_observation->sunrise));
   $update_time = $xml->observation_time_rfc822;
 
  ?>
@@ -54,8 +55,7 @@
       <tr>
         <td id="outside" class="temperature">
           <i class="material-icons">&#xe564;</i>
-          <div class="value"><?php echo $temp_out ?><span class="unit">°C</span></div>
-          <div class="highlow">
+          <div class="value"><?php echo $temp_out ?><span class="unit">°C</span></div><div class="highlow">
             <table>
             <tr>
               <td>
@@ -63,8 +63,8 @@
                 <span class="value"><?php echo $temp_out_max ?><span class="unit">°C</span></span>
               </td>
               <td>
-                <i class="material-icons">&#xe3ab;</i>
-                <span class="value"><?php echo $sunset ?></span>
+                <img src="images/sunrise.svg">
+                <span class="value"><?php echo $sunrise ?></span>
               </td>
             </tr>
             <tr>
@@ -73,8 +73,8 @@
                 <span class="value"><?php echo $temp_out_min ?><span class="unit">°C</span></span>
               </td>
               <td>
-                <i class="material-icons">&#xe7fd;</i>
-                <span class="value"><?php echo $feels_like ?><span class="unit">°C</span></span>
+                <img src="images/sunset.svg">
+                <span class="value"><?php echo $sunset ?></span>
               </td>
             </tr>
             </table>
@@ -82,8 +82,7 @@
         </td>
         <td id="inside" class="temperature">
           <i class="material-icons">&#xe88a;</i>
-          <div class="value"><?php echo $temp_in ?><span class="unit">°C</span></div>
-          <div class="highlow">
+          <div class="value"><?php echo $temp_in ?><span class="unit">°C</span></div><div class="highlow">
             <table>
             <tr>
               <td>
@@ -104,23 +103,37 @@
   </table>
   <table class="main">
       <tr>
+        <td id="column1">
+          Ilmankosteus:
+        </td>
+        <td id="column2">
+          <?php echo $humidity_out ?><span class="unit">%</span>
+        </td id="column3">
+        <td>tuntuu kuin <?php echo $feels_like ?><span class="unit">°C</span></td>
+      </tr>
+
+      <tr>
         <td>
           Tuuli:
         </td>
         <td>
           <?php echo $wind ?><span class="unit">m/s</span><span class="extra"><?php echo $wind_dir ?>°</span>
         </td>
-        <td>puuska tänään <?php echo $gust ?><span class="unit">m/s</span></td>
+        <td>
+          puuskat <?php echo $gust ?><span class="unit">m/s</span>
+        </td>
       </tr>
 
       <tr>
         <td>
-          Ilmankosteus:
+          Ilmanpaine:
         </td>
         <td>
-          <?php echo $humidity_out ?><span class="unit">%</span>
+          <?php echo $pressure ?><span class="unit">hPa</span>
         </td>
-        <td>kastepiste <?php echo $dewpoint ?><span class="unit">°C</span></td>
+        <td>
+          <?php echo $pressure_trend ?>
+        </td>
       </tr>
 
       <tr>
@@ -138,18 +151,7 @@
             echo "sataa " . $rain_rate . '<span class="unit">mm/h</span>';
           }
           ?>
-
         </td>
-      </tr>
-
-      <tr>
-        <td>
-          Ilmanpaine:
-        </td>
-        <td>
-          <?php echo $pressure ?><span class="unit">hPa</span>
-        </td>
-        <td><?php echo $pressure_trend ?></td>
       </tr>
 
       <tr>
@@ -159,28 +161,16 @@
         <td>
           <?php echo $solar_radiation ?><span class="unit">W/m²</span>
         </td>
-        <td>kuun suurin <?php echo $solar_radiation_max ?><span class="unit">W/m²</span></td>
-      </tr>
-
-      <tr>
         <td>
-          UV-indeksi:
-        </td>
-        <td>
-          <?php echo $uv_index ?>
-        </td>
-        <td>
-          <?php
-          if($uv_index == 0){
-            echo "ei UV-säteilyä";
-          } elseif ($uv_index < 2.5){
-            echo "matala";
-          } elseif ($uv_index < 5.5){
-            echo "kohtalainen, suojaudu";
-          } else {
-            echo "korkea, suojaudu";
-          }
-           ?>
+        <?php
+        if($uv_index == 0){
+          echo "ei UV-säteilyä (<span class=unit>UVI </span>0.0)";
+        } elseif ($uv_index < 3){
+          echo "matala riski (<span class=unit>UVI </span>" . $uv_index . ")";
+        } else {
+          echo "suojaudu (<span class=unit>UVI </span>" . $uv_index . ")";
+        }
+         ?>
         </td>
       </tr>
 
