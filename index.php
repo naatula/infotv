@@ -117,7 +117,8 @@ function checkTime(i) {
       </a>
     </span>
     <span id='bottombar'>
-      <span id='lunch'>
+      <a href="lunch?delay=180">
+      <span id='lunch' class='link'>
         <?php
         $after_lunch = date(G)>12;
         if($after_lunch){
@@ -176,6 +177,7 @@ function checkTime(i) {
         }
         ?>
       </span>
+      </a>
     </span>
   </div>
 </body>

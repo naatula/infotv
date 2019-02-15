@@ -84,6 +84,7 @@ iframe {
   background-color: #0008;
 }
 
+#bottombar a:active span.link,
 #topbar a:active span.link {
   background-color: rgba(255, 255, 255, 0.5);
 }
@@ -148,9 +149,8 @@ img.wind_arrow {
 }
 
 /* Lunch in bottom bar */
-#lunch {
-  margin-left: 1vw;
-  padding: 0;
+span#lunch {
+  padding: 0 2vw 0 1vw;
   display: inline-block;
 }
 
@@ -356,4 +356,52 @@ body#weather table.main tr:last-child td {
   font-size: 1vw;
   border-bottom: none;
   color: #6a808f;
+}
+
+/* Lunch view */
+
+body#lunch {
+  background-color: #2d391d;
+  color: #fff;
+}
+
+body#lunch table {
+  width: 90%;
+  vertical-align: middle;
+  border-collapse: collapse;
+  margin: 0 5% 0 5%;
+}
+
+body#lunch table#main td {
+  font-size: 1.5vw;
+  border-top: solid;
+  border-bottom: solid;
+  border-color: #5d6a4b;
+  border-width: 1px;
+  padding: .5vw 0;
+  white-space: nowrap;
+  padding-left: 2vw;
+  max-width: 0;
+  overflow: hidden;
+}
+
+body#lunch table#main td:first-child {
+  padding-left: 5vw;
+  width: 7.5vw;
+  text-align: right;
+}
+
+body#lunch table#main tr.today {
+  background-color: #394528;
+}
+
+body#lunch table#title td {
+  font-size: 2.5vw;
+  padding: 2vw 0 2vw 0;
+}
+
+body#lunch .properties {
+  margin-left: 0.5em;
+  opacity: 0.5;
+  font-size: smaller;
 }
