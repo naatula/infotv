@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <title>InfoTV</title>
-  <?php include("head.php"); ?>
-  <?php
+  <?php include("head.php");
+  $credentials = parse_ini_file('credentials.ini');
+
   # Päivitä sivu tasa- ja puolitunnein
   if (date(i)<30){
     $refresh_time = mktime(date(H), 30, 10) - time();
@@ -56,13 +57,12 @@ function checkTime(i) {
 </head>
 <body>
   <div id="content">
-    <iframe id="slides" src="https://docs.google.com/presentation/d/e/2PACX-1vRZpXNtuoV69BbfTlrbwIDCZeYL9OnmTwoej-gu7h0J68agp4C-OVSFMJsHjrFET4ui9A80EZutyhXr/embed?start=true&loop=true&delayms=20000&rm=minimal" frameborder="0"></iframe>
+    <iframe id="slides" src="https://docs.google.com/presentation/d/e/<?php echo $credentials["slides_presentation"]; ?>/embed?start=true&loop=true&delayms=<?php echo $credentials["slides_delay_ms"] ?>&rm=minimal" frameborder="0"></iframe>
     <span id="topbar">
       <a href='weather?delay=180'>
       <span id="weather" class="link">
         <?php
           if ((time()-filemtime("temp/weather.xml"))>900) {
-            $credentials = parse_ini_file('credentials.ini');
             $user = $credentials["wl_user"];
             $pass = $credentials["wl_pass"];
             $apiToken = $credentials["wl_apiToken"];
