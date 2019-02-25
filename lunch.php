@@ -23,24 +23,24 @@
         $lunch_time = mktime(0, 0, 0, date("m"), date("d") + $i, date("Y"));
         $json_date = date('Y/m/d', $lunch_time);
 
-        if (file_exists("temp/lunch_{$lunch_time}.json")){
-          $json = file_get_contents("temp/lunch_{$lunch_time}.json");
-        } else {
+        $file_path = "temp/lunch_{$lunch_time}.json";
+        $json = file_get_contents($file_path);
+        $menu = json_decode($json);
+        if (!(file_exists($file_path) && (count($menu->courses) > 0 || time()-filemtime($file_path) < 86400))){
           ini_set('default_socket_timeout', 1);
           $json = file_get_contents("https://www.sodexo.fi/ruokalistat/output/daily_json/27843/{$json_date}/fi") or "";
           ini_set('default_socket_timeout', 60);
-
+          $menu = json_decode($json);
           if (!empty($json)){
-            if($file = fopen("temp/lunch_{$lunch_time}.json", w)){
+            if($file = fopen($file_path, w)){
               fwrite($file, $json);
               fclose($file);
             } else {
-              trigger_error("Tiedostoa temp/lunch_{$lunch_time}.json ei voitu luoda", E_USER_WARNING);
+              trigger_error("Tiedostoa {$file_path} ei voitu luoda", E_USER_WARNING);
             }
           }
 
         }
-      $menu = json_decode($json);
       $lunch = array();
       foreach($menu->courses as $item){
         $entry = $item->title_fi;
