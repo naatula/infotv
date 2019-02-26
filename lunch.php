@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>InfoTV Sää</title>
+  <title>InfoTV Lounas</title>
   <?php include("head.php"); ?>
 
 </head>
