@@ -97,14 +97,12 @@ function checkTime(i) {
         ?>
       </span>
       </a>
-      <a href="clock?delay=21600">
-      <span id="time" class="link">
+      <span id="time">
       <?php
       date_default_timezone_set("Europe/Helsinki");
       echo date("H:i");
       ?>
       </span>
-      </a>
       <a href="calendar?delay=180">
       <span id="date" class="link">
         <?php
