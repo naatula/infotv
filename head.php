@@ -6,6 +6,15 @@
 <link rel="stylesheet" type="text/css" href="infotv.css">
 
 <?php
+$credentials = parse_ini_file('credentials.ini');
+
+$ip_whitelist = explode(" ", $credentials["ip_whitelist"]);
+$ip = $_SERVER['REMOTE_ADDR'];
+if(!empty($ip_whitelist[0]) && !in_array($ip, $ip_whitelist)){
+  echo "</head><body>IP-osoite ei sallittu ($ip)</body></html>";
+  exit();
+}
+
 $delay = $_GET["delay"];
 if($delay){
   echo "<meta http-equiv='refresh' content='{$delay}; url=./' />";

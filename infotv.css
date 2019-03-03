@@ -22,6 +22,7 @@ body {
   height: 100%;
   width: 100%;
   background-color: #000;
+  color: #fff;
   margin: 0;
   font-family: "Open Sans", "Arial", sans-serif;
   overflow: hidden;
@@ -161,6 +162,7 @@ span#lunch {
 /* Calendar view */
 body.calendar {
   background-color: #fff;
+  color: #000;
 }
 
 #calendar_content {
@@ -198,10 +200,6 @@ iframe.calendar {
 }
 
 /* Clock view */
-body#clock {
-  color: #fff;
-}
-
 body#clock table {
   height: 80vh;
   width: 100%;
@@ -243,7 +241,6 @@ body#clock div#pass {
 /* Weather view */
 body#weather {
   background-color: #1D384B;
-  color: #fff;
 }
 
 body#weather table.title {
@@ -362,7 +359,6 @@ body#weather table.main tr:last-child td {
 
 body#lunch {
   background-color: #2d391d;
-  color: #fff;
 }
 
 body#lunch table {

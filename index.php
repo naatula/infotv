@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <title>InfoTV</title>
   <?php include("head.php");
-  $credentials = parse_ini_file('credentials.ini');
 
   # Päivitä sivu tasa- ja puolitunnein
   if (date(i)<30){
