@@ -11,6 +11,8 @@ $credentials = parse_ini_file('credentials.ini');
 $ip_whitelist = explode(" ", $credentials["ip_whitelist"]);
 $ip = $_SERVER['REMOTE_ADDR'];
 if(!empty($ip_whitelist[0]) && !in_array($ip, $ip_whitelist)){
+  header('HTTP/1.0 403 Forbidden');
+  echo "<meta http-equiv='refresh' content='600'>";
   echo "</head><body>IP-osoite ei sallittu ($ip)</body></html>";
   exit();
 }
