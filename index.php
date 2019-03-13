@@ -170,7 +170,7 @@ function checkTime(i) {
         if (!empty($lunch)){
           echo "Lounas " . $date_display . ":<span class='left_margin lunch_option'>" . implode($lunch,"</span><span class='left_margin lunch_option'>") . "</span>";
         } else {
-          echo "Hyvää lomaa!";
+          echo "Ei lounastietoa";
         }
         ?>
       </span>
