@@ -17,12 +17,10 @@
       <?php
       date_default_timezone_set("Europe/Helsinki");
       $days_of_the_week = array("su","ma","ti","ke","to","pe","la");
-      $row_count = 0;
-      $consecutive_fails = 0;
-      for ($i=-1; ($consecutive_fails<3 && $row_count< 8); $i++){
-        $lunch_time = mktime(0, 0, 0, date("m"), date("d") + $i, date("Y"));
+      $monday = strtotime('monday this week');
+      for ($i=0; $i<7; $i++){
+        $lunch_time =  $monday + $i * 86400;
         $json_date = date('Y/m/d', $lunch_time);
-
         $file_path = "temp/lunch_{$lunch_time}.json";
         $json = file_get_contents($file_path);
         $menu = json_decode($json);
@@ -64,10 +62,6 @@
       echo "><td>" . $days_of_the_week[date('w', $lunch_time)] . date(' d.m.', $lunch_time) . "</td>";
       echo "<td>" . implode($lunch, "<br>") . "</td>";
       echo "</tr>";
-      $row_count++;
-      $consecutive_fails = 0;
-    } else {
-      $consecutive_fails++;
     }
     }
      ?>
