@@ -379,6 +379,7 @@ body#lunch table#main td {
   padding-left: 2vw;
   max-width: 0;
   overflow: hidden;
+  height: 5vw;
 }
 
 body#lunch table#main td:first-child {
