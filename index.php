@@ -130,7 +130,7 @@ function checkTime(i) {
           $json_date = date('Y/m/d', $lunch_time);
           $file_path = "temp/lunch_{$lunch_time}.json";
 
-          if (!(file_exists($file_path) && (count($menu->courses) > 0 || time()-filemtime($file_path) < 21600))){
+          if (file_exists($file_path) && (count($menu->courses) > 0 || time()-filemtime($file_path) < 3600)){
             $json = file_get_contents($file_path);
             $menu = json_decode($json);
             foreach($menu->courses as $item){
@@ -169,6 +169,8 @@ function checkTime(i) {
 
         if (!empty($lunch)){
           echo "Lounas " . $date_display . ":<span class='left_margin lunch_option'>" . implode($lunch,"</span><span class='left_margin lunch_option'>") . "</span>";
+        } else if (date(w)==5){
+          echo "Hyvää viikonloppua!";
         } else {
           echo "Ei lounastietoa";
         }
