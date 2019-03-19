@@ -17,7 +17,7 @@
       <?php
       date_default_timezone_set("Europe/Helsinki");
       $days_of_the_week = array("su","ma","ti","ke","to","pe","la");
-      $monday = strtotime('monday this week');
+      $monday = strtotime('monday this week',mktime(0, 0, 0, date("m"), date("d")+2));
       for ($i=0; $i<7; $i++){
         $lunch_time =  $monday + $i * 86400;
         $json_date = date('Y/m/d', $lunch_time);
